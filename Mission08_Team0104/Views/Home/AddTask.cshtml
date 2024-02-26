@@ -1,6 +1,6 @@
-﻿@{
-    //I will add in the model name here
-    //  @model
+﻿@*     I will add in the model name here
+     @model *@
+@{
 
     ViewData["Title"] = "Add/Edit Task Page";
 
@@ -13,6 +13,7 @@
 
     <form method="post">
         <input type="hidden" asp-for="TaskId" />
+
         <label asp-for="Task">Task</label>
         <input asp-for="Task" type="text" class="form-control" required />
 
@@ -28,7 +29,7 @@
             <option value="4">4</option>
         </select>
 
-        <label>Category</label>
+        <label asp-for="Category">Category</label>
         <select asp-for="CategoryId" class="form-control">
             <option value="">Select Category</option>
             <option value="Home">Home</option>
