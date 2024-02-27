@@ -14,8 +14,8 @@
     <form method="post">
         <input type="hidden" asp-for="TaskId" />
 
-        <label asp-for="Task">Task</label>
-        <input asp-for="Task" type="text" class="form-control" required />
+        <label asp-for="TaskItem">Task</label>
+        <input asp-for="TaskItem" type="text" class="form-control" required />
 
         <label asp-for="DueDate">Due Date</label>
         <input asp-for="DueDate" type="date" class="form-control" />
@@ -29,13 +29,13 @@
             <option value="4">4</option>
         </select>
 
-        <label asp-for="Category">Category</label>
+        <label asp-for="CategoryId">Category</label>
         <select asp-for="CategoryId" class="form-control">
             <option value="">Select Category</option>
-            <option value="Home">Home</option>
-            <option value="Work">Work</option>
-            <option value="School">School</option>
-            <option value="Church">Church</option>
+            <option value=1>Home</option>
+            <option value=2>Work</option>
+            <option value=3>School</option>
+            <option value=4>Church</option>
         </select>
 
         <button type="submit" class="btn btn-primary">Save</button>
