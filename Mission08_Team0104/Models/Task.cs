@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission08_Team0104.Models
 {
-    public class ProjectTask
+    public class Task
     {
         [Key]
         [Required]
