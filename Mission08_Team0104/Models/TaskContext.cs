@@ -8,7 +8,7 @@ namespace Mission08_Team0104.Models
         {
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<ProjectTask> Tasks { get; set; }
 
         public DbSet<Category> Categories { get; set;}
 
