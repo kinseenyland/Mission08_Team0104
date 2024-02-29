@@ -4,6 +4,9 @@ namespace Mission08_Team0104.Models
 {
     public class TaskContext : DbContext
     {
+        public TaskContext()
+        {
+        }
         public TaskContext(DbContextOptions<TaskContext> options) : base(options)
         {
         }
