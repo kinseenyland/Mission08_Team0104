@@ -1,45 +1,59 @@
 ﻿@model Mission08_Team0104.Models.Task
 
 @{
-
     ViewData["Title"] = "Add/Edit Task Page";
-
 }
 
-<div class="text-center">
-    <h1>Add a New Task</h1>
-    <p>Enter the task details below</p>
-    <hr />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h1>Add/Edit a Task</h1>
+            <p>Enter the task details below</p>
+            <hr />
 
-    <form method="post">
-        <input type="hidden" asp-for="TaskId" />
+            <form method="post">
+                <input type="hidden" asp-for="TaskId" />
 
-        <label asp-for="TaskItem">Task</label>
-        <input asp-for="TaskItem" type="text" class="form-control" required />
+                <div class="form-group">
+                    <label asp-for="TaskItem">Task</label>
+                    <input asp-for="TaskItem" type="text" class="form-control" required />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="DueDate">Due Date</label>
+                    <input asp-for="DueDate" type="date" class="form-control" />
+                </div>
+                <br />
 
-        <label asp-for="DueDate">Due Date</label>
-        <input asp-for="DueDate" type="date" class="form-control" />
+                <div class="form-group">
+                    <label asp-for=Quadrant>Quadrant</label>
+                    <select asp-for="Quadrant" class="form-control" required>
+                        <option value="">Select Quadrant</option>
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                    </select>
+                </div>                <br />
 
-        <label asp-for=Quadrant>Quadrant</label>
-        <select asp-for="Quadrant" class="form-control" required>
-            <option value="">Select Quadrant</option>
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-        </select>
+                <div class="form-group">
+                    <label asp-for="CategoryId">Category</label>
+                    <select asp-for="CategoryId" class="form-control">
+                        <option value="">Select Category</option>
+                        <option value=1>Home</option>
+                        <option value=2>School</option>
+                        <option value=3>Work</option>
+                        <option value=4>Church</option>
+                    </select>
+                </div>
+                <br />
 
-        <label asp-for="CategoryId">Category</label>
-        <select asp-for="CategoryId" class="form-control">
-            <option value="">Select Category</option>
-            <option value=1>Home</option>
-            <option value=2>School</option>
-            <option value=3>Work</option>
-            <option value=4>Church</option>
-        </select>
-
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-        <div asp-validation-summary="All" class="text-danger"></div>
-    </form>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
