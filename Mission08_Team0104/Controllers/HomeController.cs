@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission08_Team0104.Models;
 using System.Diagnostics;
 
@@ -22,9 +23,11 @@ namespace Mission08_Team0104.Controllers
 
         public IActionResult AddTask()
         {
-            //ViewBag.Categories = _repo.Categories
-            //    .OrderBy(x => x.CategoryId)
-            //    .ToList();
+            ViewBag.Categories = _repo.Categories
+                .OrderBy(x => x.CategoryId)
+                .ToList();
+
+
             return View(new Models.Task());
         }
 

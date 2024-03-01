@@ -40,10 +40,10 @@
                     <label asp-for="CategoryId">Category</label>
                     <select asp-for="CategoryId" class="form-control">
                         <option value="">Select Category</option>
-                        <option value=1>Home</option>
-                        <option value=2>School</option>
-                        <option value=3>Work</option>
-                        <option value=4>Church</option>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.CategoryId">@category.CategoryName</option>
+                        }
                     </select>
                 </div>
                 <br />
