@@ -14,12 +14,24 @@ namespace Mission08_Team0104.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var display = _repo.Tasks
+                .OrderBy(t => t.TaskId)
+                .ToList();
+            return View(display);
         }
 
         public IActionResult AddTask()
         {
             return View();
+        }
+
+        public IActionResult Delete()
+        {
+            return RedirectToAction("AddTask");
+        }
+        public IActionResult Edit()
+        {
+            return RedirectToAction("AddTask");
         }
     }
 }
