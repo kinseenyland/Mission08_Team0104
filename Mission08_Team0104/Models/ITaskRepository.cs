@@ -9,9 +9,7 @@
         public List<Task>  GetAllTasks();
         public void AddTask(Task task);
         public void UpdateTask(Task task);
-
         public void RemoveTask(Task task);
 
-        //public void SaveChanges(Task task);
     }
 }
