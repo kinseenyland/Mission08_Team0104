@@ -1,4 +1,5 @@
-﻿namespace Mission08_Team0104.Models
+﻿using Microsoft.EntityFrameworkCore;
+namespace Mission08_Team0104.Models
 {
     public class EFTaskRepository : ITaskRepository
     {
@@ -29,6 +30,11 @@
         {
             _context.Remove(task);
             _context.SaveChanges();
+        }
+
+        public List<Task> GetAllTasks()
+        {
+           return _context.Tasks.Include("Category").ToList();
         }
     }
 }

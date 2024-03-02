@@ -3,18 +3,26 @@
 }
 
 @model List<Mission08_Team0104.Models.Task>
+<style>
+    .table-container {
+        max-height: 400px; 
+        overflow-y: auto; 
+    }
+</style>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <h4>Quadrant I: Important / Urgent</h4>
-            <div class="table-container" style="height: 200px; overflow-y: auto;">
+            <div class="table-container">
                 <table class="table table-bordered">
                     <thead class="fw-bold">
                         <tr>
                             <td>Task</td>
                             <td>DueDate</td>
                             <td>Category</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
 
@@ -25,7 +33,6 @@
                                 <td>@x.TaskItem</td>
                                 <td>@x.DueDate</td>
                                 <td>@x.Category?.CategoryName</td>
-
                                 <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
@@ -36,13 +43,15 @@
         </div>
         <div class="col-md-6">
             <h4>Quadrant II: Important / Not Urgent</h4>
-            <div class="table-container" style="height: 200px; overflow-y: auto;">
+            <div class="table-container">
                 <table class="table table-bordered">
                     <thead class="fw-bold">
                         <tr>
                             <td>Task</td>
                             <td>DueDate</td>
                             <td>Category</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
 
@@ -53,7 +62,6 @@
                                 <td>@x.TaskItem</td>
                                 <td>@x.DueDate</td>
                                 <td>@x.Category?.CategoryName</td>
-
                                 <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
@@ -63,16 +71,19 @@
             </div>
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-6">
             <h4>Quadrant III: Not Important / Urgent</h4>
-            <div class="table-container" style="height: 200px; overflow-y: auto;">
+            <div class="table-container">
                 <table class="table table-bordered">
                     <thead class="fw-bold">
                         <tr>
                             <td>Task</td>
                             <td>DueDate</td>
                             <td>Category</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
 
@@ -83,7 +94,6 @@
                                 <td>@x.TaskItem</td>
                                 <td>@x.DueDate</td>
                                 <td>@x.Category?.CategoryName</td>
-
                                 <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
@@ -94,13 +104,15 @@
         </div>
         <div class="col-md-6">
             <h4>Quadrant IV: Not Important / Not Urgent</h4>
-            <div class="table-container" style="height: 200px; overflow-y: auto;">
+            <div class="table-container">
                 <table class="table table-bordered">
                     <thead class="fw-bold">
                         <tr>
                             <td>Task</td>
                             <td>DueDate</td>
                             <td>Category</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
 
@@ -111,7 +123,6 @@
                                 <td>@x.TaskItem</td>
                                 <td>@x.DueDate</td>
                                 <td>@x.Category?.CategoryName</td>
-
                                 <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>

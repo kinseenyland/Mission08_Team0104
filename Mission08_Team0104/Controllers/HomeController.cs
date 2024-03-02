@@ -13,12 +13,11 @@ namespace Mission08_Team0104.Controllers
             _repo = temp;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            var display = _repo.Tasks
-                .OrderBy(t => t.TaskId)
-                .ToList();
-            return View(display);
+            var allTasks = _repo.GetAllTasks();
+            return View(allTasks);
         }
 
         [HttpGet]
@@ -66,8 +65,20 @@ namespace Mission08_Team0104.Controllers
         [HttpPost]
         public IActionResult Edit(Models.Task updatedTask)
         {
-            _repo.UpdateTask(updatedTask);
-            return RedirectToAction("index");
+            if (ModelState.IsValid)
+            {
+                _repo.UpdateTask(updatedTask);
+                return RedirectToAction("index");
+            }
+            else
+            //invalid - return the form with the data the user entered
+
+            {
+                ViewBag.Categories = _repo.Categories
+                    .OrderBy(x => x.CategoryId)
+                    .ToList();
+                return View("AddTask", updatedTask);
+            }   
         }
 
 
