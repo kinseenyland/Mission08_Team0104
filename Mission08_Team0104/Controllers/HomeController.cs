@@ -56,7 +56,7 @@ namespace Mission08_Team0104.Controllers
         {
             var taskToEdit = _repo.Tasks
                 .Single(t => t.TaskId == id);
-            ViewBag.Categories = _repo.Tasks
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryId)
                 .ToList();
                 
@@ -67,24 +67,24 @@ namespace Mission08_Team0104.Controllers
         public IActionResult Edit(Models.Task updatedTask)
         {
             _repo.UpdateTask(updatedTask);
-            return RedirectToAction("MovieList");
+            return RedirectToAction("index");
+        }
+
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var taskToDelete = _repo.Tasks
+                .Single(x => x.TaskId == id);
+            return View(taskToDelete);
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Models.Task taskToDelete)
         {
-            var deleteRecord = _repo.Tasks
-                .Single(x => x.TaskId == id);
-            _repo.Tasks.Remove(deleteRecord);
-            return View("index");
-        }
+            _repo.RemoveTask(taskToDelete);
 
-        
-        public IActionResult Delete(Models.Task deleteTask)
-        {
-            _repo.Tasks.Remove(deleteTask);
-
-            return RedirectToAction("DisplayCollection");
+            return RedirectToAction("index");
         }
     }
 }

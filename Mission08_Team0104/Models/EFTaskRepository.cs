@@ -24,5 +24,11 @@
             _context.Update(task);
             _context.SaveChanges();
         }
+
+        public void RemoveTask(Task task)
+        {
+            _context.Remove(task);
+            _context.SaveChanges();
+        }
     }
 }
