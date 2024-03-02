@@ -34,7 +34,8 @@
                         <option value=3>3</option>
                         <option value=4>4</option>
                     </select>
-                </div>                <br />
+                </div>                
+                <br />
 
                 <div class="form-group">
                     <label asp-for="CategoryId">Category</label>
@@ -44,6 +45,17 @@
                         {
                             <option value="@category.CategoryId">@category.CategoryName</option>
                         }
+                    </select>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <label asp-for=IsCompleted>Is It Completed?</label>
+                    <select asp-for="IsCompleted" class="form-control" required>
+                        <option value="">Select Status</option>
+                        <option value=False>No</option>
+                        <option value=True>Yes</option>
+
                     </select>
                 </div>
                 <br />
