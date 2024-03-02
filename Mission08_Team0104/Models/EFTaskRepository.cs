@@ -19,5 +19,10 @@
             _context.Add(task);
             _context.SaveChanges();
         }
+        public void UpdateTask(Task task)
+        {
+            _context.Update(task);
+            _context.SaveChanges();
+        }
     }
 }

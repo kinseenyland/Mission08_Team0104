@@ -28,33 +28,46 @@ namespace Mission08_Team0104.Controllers
                 .OrderBy(x => x.CategoryId)
                 .ToList();
 
-
-            return View(new Models.Task());
+            return View("AddTask", new Models.Task());
         }
 
         [HttpPost]
-        public IActionResult AddTask(Models.Task addTask)
+        public IActionResult AddTask(Models.Task newTask)
         {
             if(ModelState.IsValid)
             {
+                _repo.AddTask(newTask);
 
-                _repo.AddTask(addTask);
+                return View("Confirmation");
 
             }
+            else
+            //invalid - return the form with the data the user entered
+            {
+                ViewBag.Categories = _repo.Categories.OrderBy(x => x.CategoryName).ToList();
+                return View(newTask);
+            }
 
-            return View(new Models.Task());
+            // return View(new Models.Task());
         }
 
-     
+        [HttpGet]
         public IActionResult Edit(int id )
         {
-            var updateTask = _repo.Tasks
+            var taskToEdit = _repo.Tasks
                 .Single(t => t.TaskId == id);
             ViewBag.Categories = _repo.Tasks
                 .OrderBy(x => x.CategoryId)
                 .ToList();
                 
-            return RedirectToAction("AddTask", updateTask);
+            return View("AddTask", taskToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Models.Task updatedTask)
+        {
+            _repo.UpdateTask(updatedTask);
+            return RedirectToAction("MovieList");
         }
 
         [HttpPost]
