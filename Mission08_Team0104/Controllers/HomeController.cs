@@ -21,6 +21,7 @@ namespace Mission08_Team0104.Controllers
             return View(display);
         }
 
+        [HttpGet]
         public IActionResult AddTask()
         {
             ViewBag.Categories = _repo.Categories
@@ -36,6 +37,7 @@ namespace Mission08_Team0104.Controllers
         {
             if(ModelState.IsValid)
             {
+
                 _repo.AddTask(addTask);
 
             }
